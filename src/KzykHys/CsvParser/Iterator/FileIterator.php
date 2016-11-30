@@ -82,7 +82,7 @@ class FileIterator implements \Iterator
         $this->length = strlen($line);
         fseek($this->handle, $this->offset);
 
-        return $line;
+        return str_replace("\xEF\xBB\xBF", '', $line);
     }
 
     /**
